@@ -1,0 +1,720 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.23"/>
+        <title>nbox.framework.on_functions - nbox 0.8.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=3c656993158f05539f962c5cea52a5e6c184bb8c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">nbox 0.8.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">nbox 0.8.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_deploy.html">QuickStart with Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_plug.html">How to plug your own models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_skl.html">Scikit Learn Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.cli.html">How to nboxCLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox-serving.html">nbox Serving</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.load.html">Loading models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.model.html">nbox Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.parsers.html">Parsers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../nbox.framework.html">Frameworks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nbox.framework.pytorch.html">pytorch specific methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nbox.framework.sklearn.html">sklearn specific methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.network.html">Network Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.auth.html">nbox.auth module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operators</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../nbox.operators.html">nbox.operators package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nbox.operators.lib.html">nbox.operators.lib module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nbox.operators.operator.html">nbox.operators.operator module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.operators.operator.html">nbox.operators.operator module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.operators.lib.html">nbox.operators.lib module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jobs</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../nbox.jobs.html">nbox.jobs package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nbox.jobs.cli.html">nbox.jobs.cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nbox.jobs.jobs.html">nbox.jobs.jobs module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nbox.jobs.utils.html">nbox.jobs.utils module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">R&amp;D</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../in_progress.html">TODO</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for nbox.framework.on_functions</h1><div class="highlight"><pre>
+<span></span><span class="c1"># weird file name, yessir. Why? because</span>
+<span class="c1"># from nbox.framework.on_functions import PureFunctionParser</span>
+<span class="c1"># read as "from nbox's framework on Functions import the pure-function Parser"</span>
+
+<span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">()</span>
+
+<span class="c1"># ==================</span>
+
+<span class="c1"># dataclasses are not that good: these classes are for the Op</span>
+
+<div class="viewcode-block" id="DBase"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.DBase">[docs]</a><span class="k">class</span> <span class="nc">DBase</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DBase.get"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.DBase.get">[docs]</a>  <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span></div>
+  
+<div class="viewcode-block" id="DBase.get_dict"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.DBase.get_dict">[docs]</a>  <span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__slots__</span><span class="p">:</span>
+      <span class="n">_obj</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">_obj</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">continue</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_obj</span><span class="p">,</span> <span class="n">DBase</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_obj</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()</span>
+      <span class="k">elif</span> <span class="n">_obj</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_obj</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_obj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">DBase</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">_obj</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">_obj</span> <span class="ow">in</span> <span class="n">_obj</span><span class="p">]</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_obj</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+
+  <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_dict</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="ExpressionNodeInfo"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.ExpressionNodeInfo">[docs]</a><span class="k">class</span> <span class="nc">ExpressionNodeInfo</span><span class="p">(</span><span class="n">DBase</span><span class="p">):</span>
+  <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'name'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'code'</span><span class="p">,</span> <span class="c1"># :str (base64)</span>
+    <span class="s1">'nbox_string'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'lineno'</span><span class="p">,</span> <span class="c1"># :int</span>
+    <span class="s1">'col_offset'</span><span class="p">,</span> <span class="c1"># :int</span>
+    <span class="s1">'end_lineno'</span><span class="p">,</span> <span class="c1"># :int</span>
+    <span class="s1">'end_col_offset'</span><span class="p">,</span> <span class="c1"># :int</span>
+    <span class="s1">'inputs'</span><span class="p">,</span> <span class="c1"># :list[Dict[Any, Any]]</span>
+    <span class="s1">'outputs'</span><span class="p">,</span> <span class="c1"># :list[str]</span>
+  <span class="p">]</span></div>
+
+<div class="viewcode-block" id="IfNodeInfo"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.IfNodeInfo">[docs]</a><span class="k">class</span> <span class="nc">IfNodeInfo</span><span class="p">(</span><span class="n">DBase</span><span class="p">):</span>
+  <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'nbox_string'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'conditions'</span><span class="p">,</span> <span class="c1"># :list[ExpressionNodeInfo]</span>
+    <span class="s1">'inputs'</span><span class="p">,</span> <span class="c1"># :list[Dict[Any, Any]]</span>
+    <span class="s1">'outputs'</span><span class="p">,</span> <span class="c1"># :list[str]</span>
+  <span class="p">]</span></div>
+
+
+<span class="c1"># these classes are for the FE</span>
+<div class="viewcode-block" id="RunStatus"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.RunStatus">[docs]</a><span class="k">class</span> <span class="nc">RunStatus</span><span class="p">(</span><span class="n">DBase</span><span class="p">):</span>
+  <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'start'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'end'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'inputs'</span><span class="p">,</span> <span class="c1"># :Dict</span>
+    <span class="s1">'outputs'</span><span class="p">,</span> <span class="c1"># :Dict</span>
+  <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Node"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.Node">[docs]</a><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">DBase</span><span class="p">):</span>
+  <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'id'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'execution_index'</span><span class="p">,</span> <span class="c1"># :int</span>
+    <span class="s1">'name'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'type'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'node_info'</span><span class="p">,</span> <span class="c1"># :Union[ExpressionNodeInfo, IfNodeInfo]</span>
+    <span class="s1">'operator'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'nbox_string'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'run_status'</span><span class="p">,</span> <span class="c1"># :RunStatus</span>
+  <span class="p">]</span></div>
+
+<div class="viewcode-block" id="Edge"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.Edge">[docs]</a><span class="k">class</span> <span class="nc">Edge</span><span class="p">(</span><span class="n">DBase</span><span class="p">):</span>
+  <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'id'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'source'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'target'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'type'</span><span class="p">,</span> <span class="c1"># :str</span>
+    <span class="s1">'nbox_string'</span><span class="p">,</span> <span class="c1"># :str</span>
+  <span class="p">]</span></div>
+
+
+<span class="c1"># ==================</span>
+<span class="c1"># the next set of functions are meant as support methods to create nbox_strings IR.</span>
+
+<div class="viewcode-block" id="NboxStrings"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.NboxStrings">[docs]</a><span class="k">class</span> <span class="nc">NboxStrings</span><span class="p">:</span>
+  <span class="n">OP_TO_STRING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"FUNCTION: </span><span class="si">{name}</span><span class="s2"> ( </span><span class="si">{inputs}</span><span class="s2"> ) =&gt; [ </span><span class="si">{outputs}</span><span class="s2"> ]"</span><span class="p">,</span>
+    <span class="s2">"define"</span><span class="p">:</span> <span class="s2">"DEFINE: </span><span class="si">{name}</span><span class="s2"> ( </span><span class="si">{inputs}</span><span class="s2"> )"</span><span class="p">,</span>
+    <span class="s2">"for"</span><span class="p">:</span> <span class="s2">"FOR: </span><span class="si">{name}</span><span class="s2"> ( </span><span class="si">{iter}</span><span class="s2"> ) =&gt; ( </span><span class="si">{target}</span><span class="s2"> )"</span><span class="p">,</span>
+  <span class="p">}</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="NboxStrings.function"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.NboxStrings.function">[docs]</a>  <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OP_TO_STRING</span><span class="p">[</span><span class="s2">"function"</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+      <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+      <span class="n">inputs</span><span class="o">=</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="s1">'kwarg'</span><span class="p">]</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">]),</span>
+      <span class="n">outputs</span><span class="o">=</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+    <span class="p">)</span></div>
+
+<div class="viewcode-block" id="NboxStrings.define"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.NboxStrings.define">[docs]</a>  <span class="k">def</span> <span class="nf">define</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OP_TO_STRING</span><span class="p">[</span><span class="s2">"define"</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+      <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+      <span class="n">inputs</span><span class="o">=</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="s1">'kwarg'</span><span class="p">]</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">])</span>
+    <span class="p">)</span></div>
+
+  <span class="k">def</span> <span class="nf">_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">iter</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">OP_TO_STRING</span><span class="p">[</span><span class="s2">"for"</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+      <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+      <span class="nb">iter</span><span class="o">=</span><span class="nb">iter</span><span class="p">,</span>
+      <span class="n">target</span><span class="o">=</span><span class="n">target</span>
+    <span class="p">)</span></div>
+
+<span class="n">nbxl</span> <span class="o">=</span> <span class="n">NboxStrings</span><span class="p">()</span>
+
+<div class="viewcode-block" id="write_program"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.write_program">[docs]</a><span class="k">def</span> <span class="nf">write_program</span><span class="p">(</span><span class="n">nodes</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nodes</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">nbox_string</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">n</span><span class="o">.</span><span class="n">node_info</span><span class="o">.</span><span class="n">nbox_string</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">n</span><span class="o">.</span><span class="n">nbox_string</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span></div>
+
+<span class="c1"># ==================</span>
+
+<div class="viewcode-block" id="get_code_portion"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.get_code_portion">[docs]</a><span class="k">def</span> <span class="nf">get_code_portion</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="n">lineno</span><span class="p">,</span> <span class="n">col_offset</span><span class="p">,</span> <span class="n">end_lineno</span><span class="p">,</span> <span class="n">end_col_offset</span><span class="p">,</span> <span class="n">b64</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">_</span><span class="p">):</span>
+  <span class="n">sl</span><span class="p">,</span> <span class="n">so</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="n">eo</span> <span class="o">=</span> <span class="n">lineno</span><span class="p">,</span> <span class="n">col_offset</span><span class="p">,</span> <span class="n">end_lineno</span><span class="p">,</span> <span class="n">end_col_offset</span>
+  <span class="k">if</span> <span class="n">sl</span> <span class="o">==</span> <span class="n">el</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">cl</span><span class="p">[</span><span class="n">sl</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">so</span><span class="p">:</span><span class="n">eo</span><span class="p">]</span>
+  <span class="n">code</span> <span class="o">=</span> <span class="s2">""</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sl</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">sl</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="n">code</span> <span class="o">+=</span> <span class="n">cl</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">so</span><span class="p">:]</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">el</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="n">code</span> <span class="o">+=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">cl</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="n">eo</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">code</span> <span class="o">+=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">cl</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  
+  <span class="c1"># convert to base64</span>
+  <span class="k">if</span> <span class="n">b64</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">base64</span>
+    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">code</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">code</span></div>
+
+<div class="viewcode-block" id="parse_args"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.parse_args">[docs]</a><span class="k">def</span> <span class="nf">parse_args</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+  <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">arg</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">arg</span><span class="p">)</span> <span class="k">else</span> <span class="n">a</span>
+    <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+      <span class="s2">"kwarg"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span>
+    <span class="p">})</span>
+  <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">kwonlyargs</span><span class="p">:</span>
+    <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+      <span class="s2">"kwarg"</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+      <span class="s2">"value"</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">})</span>
+  <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">vararg</span><span class="p">:</span>
+    <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+      <span class="s2">"kwarg"</span><span class="p">:</span> <span class="s2">"*"</span><span class="o">+</span><span class="n">node</span><span class="o">.</span><span class="n">vararg</span><span class="o">.</span><span class="n">arg</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">})</span>
+  <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">kwarg</span><span class="p">:</span>
+    <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+      <span class="s2">"kwarg"</span><span class="p">:</span> <span class="s2">"**"</span><span class="o">+</span><span class="n">node</span><span class="o">.</span><span class="n">kwarg</span><span class="o">.</span><span class="n">arg</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">})</span>
+  <span class="k">return</span> <span class="n">inputs</span></div>
+
+<div class="viewcode-block" id="get_name"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.get_name">[docs]</a><span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">id</span>
+  <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Attribute</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_name</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span> <span class="n">node</span><span class="o">.</span><span class="n">attr</span>
+  <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Call</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_name</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">func</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="parse_kwargs"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.parse_kwargs">[docs]</a><span class="k">def</span> <span class="nf">parse_kwargs</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">id</span>
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Constant</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">return</span> <span class="n">val</span>
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">keyword</span><span class="p">):</span>
+    <span class="n">arg</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">arg</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">if</span> <span class="s1">'id'</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+      <span class="c1"># arg = my_model</span>
+      <span class="k">return</span> <span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">'value'</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Call</span><span class="p">):</span>
+        <span class="c1"># arg = my_model(...)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">b64</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">))</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># arg = 20</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">'func'</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+      <span class="c1">#   arg = some_function(with, some=args)</span>
+      <span class="c1">#   ^^^   ^^^^^</span>
+      <span class="c1"># kwarg   value</span>
+      <span class="k">return</span> <span class="p">{</span><span class="s2">"kwarg"</span><span class="p">:</span> <span class="n">arg</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">b64</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">value</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)}</span>
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Call</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="o">**</span><span class="n">node</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="node_assign_or_expr"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.node_assign_or_expr">[docs]</a><span class="k">def</span> <span class="nf">node_assign_or_expr</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+  <span class="c1"># print(get_code_portion(lines, **node.__dict__))</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">value</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">get_name</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>
+  <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+    <span class="k">return</span> <span class="kc">None</span>
+  <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">parse_kwargs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">args</span> <span class="o">+</span> <span class="n">value</span><span class="o">.</span><span class="n">keywords</span><span class="p">]</span>
+  <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+      <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+      <span class="k">continue</span>
+    <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+      <span class="s2">"kwarg"</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">a</span><span class="p">,</span>
+    <span class="p">})</span>
+
+  <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Assign</span><span class="p">):</span>
+    <span class="n">targets</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">targets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">parse_kwargs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">targets</span><span class="o">.</span><span class="n">elts</span><span class="p">]</span> \
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Tuple</span><span class="p">)</span> \
+      <span class="k">else</span> <span class="p">[</span><span class="n">parse_kwargs</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+    <span class="p">]</span>
+
+  <span class="k">return</span> <span class="n">ExpressionNodeInfo</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">,</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">,</span>
+    <span class="n">nbox_string</span> <span class="o">=</span> <span class="n">nbxl</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">),</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="o">**</span><span class="n">node</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">),</span>
+    <span class="n">lineno</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span>
+    <span class="n">col_offset</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">col_offset</span><span class="p">,</span>
+    <span class="n">end_lineno</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">end_lineno</span><span class="p">,</span>
+    <span class="n">end_col_offset</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">end_col_offset</span><span class="p">,</span>
+  <span class="p">)</span></div>
+
+<div class="viewcode-block" id="node_if_expr"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.node_if_expr">[docs]</a><span class="k">def</span> <span class="nf">node_if_expr</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">if_cond</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">conds</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s2">"test"</span><span class="p">):</span>
+      <span class="n">else_cond</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">"condition"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"else"</span><span class="p">,</span> <span class="n">conds</span><span class="p">))</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">else_cond</span><span class="p">:</span>
+        <span class="n">conds</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+          <span class="s2">"condition"</span><span class="p">:</span> <span class="s2">"else"</span><span class="p">,</span>
+          <span class="s2">"code"</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">lineno</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span>
+            <span class="n">col_offset</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">col_offset</span><span class="p">,</span>
+            <span class="n">end_lineno</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">end_lineno</span><span class="p">,</span>
+            <span class="n">end_col_offset</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">end_col_offset</span><span class="p">,</span>
+          <span class="p">)</span>
+        <span class="p">})</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">cond</span> <span class="o">=</span> <span class="n">else_cond</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cond</span><span class="p">[</span><span class="s2">"code"</span><span class="p">][</span><span class="s2">"end_lineno"</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">end_lineno</span>
+        <span class="n">cond</span><span class="p">[</span><span class="s2">"code"</span><span class="p">][</span><span class="s2">"end_col_offset"</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">end_col_offset</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">condition</span> <span class="o">=</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="o">**</span><span class="n">node</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+
+      <span class="c1"># need to run this last or "else" comes up first</span>
+      <span class="n">conds</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s2">"condition"</span><span class="p">:</span> <span class="n">condition</span><span class="p">,</span>
+        <span class="s2">"code"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"lineno"</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span>
+          <span class="s2">"col_offset"</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">col_offset</span><span class="p">,</span>
+          <span class="s2">"end_lineno"</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">end_lineno</span><span class="p">,</span>
+          <span class="s2">"end_col_offset"</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">end_col_offset</span><span class="p">,</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">orelse</span><span class="p">:</span>
+        <span class="n">if_cond</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">conds</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">conds</span>
+  
+  <span class="c1"># get all the conditions and structure as ExpressionNodeInfo</span>
+  
+  <span class="n">all_conditions</span> <span class="o">=</span> <span class="n">if_cond</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">conds</span> <span class="o">=</span> <span class="p">[])</span>
+  <span class="n">ends</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">b0</span><span class="p">,</span> <span class="n">b1</span>  <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">all_conditions</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">all_conditions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+    <span class="n">ends</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">b0</span><span class="p">[</span><span class="s2">"code"</span><span class="p">],</span> <span class="n">b1</span><span class="p">[</span><span class="s2">"code"</span><span class="p">]])</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">)):</span>
+    <span class="n">ends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">"lineno"</span><span class="p">:</span> <span class="n">ends</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"lineno"</span><span class="p">],</span>
+      <span class="s2">"col_offset"</span><span class="p">:</span> <span class="n">ends</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"col_offset"</span><span class="p">],</span>
+      <span class="s2">"end_lineno"</span><span class="p">:</span> <span class="n">ends</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s2">"lineno"</span><span class="p">],</span>
+      <span class="s2">"end_col_offset"</span><span class="p">:</span> <span class="n">ends</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s2">"col_offset"</span><span class="p">],</span>
+    <span class="p">}</span>
+  <span class="n">ends</span> <span class="o">+=</span> <span class="p">[</span><span class="n">all_conditions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">"code"</span><span class="p">]]</span>
+
+  <span class="n">conditions</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_conditions</span><span class="p">):</span>
+    <span class="n">box</span> <span class="o">=</span> <span class="n">ends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">_node</span> <span class="o">=</span> <span class="n">ExpressionNodeInfo</span><span class="p">(</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"if-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+      <span class="n">nbox_string</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s2">"condition"</span><span class="p">],</span>
+      <span class="n">code</span> <span class="o">=</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="o">**</span><span class="n">box</span><span class="p">),</span>
+      <span class="n">lineno</span> <span class="o">=</span> <span class="n">box</span><span class="p">[</span><span class="s1">'lineno'</span><span class="p">],</span>
+      <span class="n">col_offset</span> <span class="o">=</span> <span class="n">box</span><span class="p">[</span><span class="s1">'col_offset'</span><span class="p">],</span>
+      <span class="n">end_lineno</span> <span class="o">=</span> <span class="n">box</span><span class="p">[</span><span class="s1">'end_lineno'</span><span class="p">],</span>
+      <span class="n">end_col_offset</span> <span class="o">=</span> <span class="n">box</span><span class="p">[</span><span class="s1">'end_col_offset'</span><span class="p">],</span>
+      <span class="n">inputs</span> <span class="o">=</span> <span class="p">[],</span>
+      <span class="n">outputs</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="p">)</span>
+    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_node</span><span class="p">)</span>
+
+  <span class="n">nbox_string</span> <span class="o">=</span> <span class="s2">"IF: { "</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">nbox_string</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">conditions</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" }"</span>
+  <span class="k">return</span> <span class="n">IfNodeInfo</span><span class="p">(</span>
+    <span class="n">conditions</span> <span class="o">=</span> <span class="n">conditions</span><span class="p">,</span>
+    <span class="n">nbox_string</span> <span class="o">=</span> <span class="n">nbox_string</span><span class="p">,</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="p">)</span></div>
+
+<div class="viewcode-block" id="def_func_or_class"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.def_func_or_class">[docs]</a><span class="k">def</span> <span class="nf">def_func_or_class</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="o">**</span><span class="n">node</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">),</span> <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"def-node"</span><span class="p">}</span>
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">FunctionDef</span><span class="p">):</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"func"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">"inputs"</span><span class="p">:</span> <span class="n">parse_args</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">args</span><span class="p">)})</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"func"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"inputs"</span><span class="p">:</span> <span class="p">[]})</span>
+  <span class="k">return</span> <span class="n">out</span></div>
+
+
+<span class="c1"># ==================</span>
+
+<span class="n">type_wise_logic</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1"># defns ------</span>
+  <span class="n">ast</span><span class="o">.</span><span class="n">FunctionDef</span><span class="p">:</span> <span class="n">def_func_or_class</span><span class="p">,</span>
+  <span class="n">ast</span><span class="o">.</span><span class="n">ClassDef</span><span class="p">:</span> <span class="n">def_func_or_class</span><span class="p">,</span>
+
+  <span class="c1"># nodes ------</span>
+  <span class="n">ast</span><span class="o">.</span><span class="n">Assign</span><span class="p">:</span> <span class="n">node_assign_or_expr</span><span class="p">,</span>
+  <span class="n">ast</span><span class="o">.</span><span class="n">Expr</span><span class="p">:</span> <span class="n">node_assign_or_expr</span><span class="p">,</span>
+  <span class="n">ast</span><span class="o">.</span><span class="n">If</span><span class="p">:</span> <span class="n">node_if_expr</span><span class="p">,</span>
+
+  <span class="c1"># todos ------</span>
+  <span class="c1"># ast.AsyncFunctionDef: async_func_def,</span>
+  <span class="c1"># ast.Await: node_assign_or_expr,</span>
+<span class="p">}</span>
+
+<span class="c1"># ==================</span>
+
+<div class="viewcode-block" id="get_nbx_flow"><a class="viewcode-back" href="../../../nbox.framework.on_functions.html#nbox.framework.on_functions.get_nbx_flow">[docs]</a><span class="k">def</span> <span class="nf">get_nbx_flow</span><span class="p">(</span><span class="n">forward</span><span class="p">):</span>
+  <span class="c1"># get code string from operator</span>
+  <span class="n">code</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">forward</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+  <span class="n">code_lines</span> <span class="o">=</span> <span class="n">code</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+  <span class="n">node</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+  <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># this is the flow</span>
+  <span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># this is the operators</span>
+  <span class="n">symbols_to_nodes</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># this is things that are defined at runtime</span>
+
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">expr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">body</span><span class="p">):</span>
+    <span class="c1"># if isinstance(expr, ast.Module):</span>
+    <span class="c1">#   continue</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span> <span class="ow">in</span> <span class="n">type_wise_logic</span><span class="p">:</span>
+      <span class="c1"># code pieces that are not yet supported should still see the code</span>
+      <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">()),</span>
+        <span class="n">execution_index</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"codeblock-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s2">"op-node"</span><span class="p">,</span>
+        <span class="n">operator</span> <span class="o">=</span> <span class="s2">"CodeBlock"</span><span class="p">,</span>
+        <span class="n">node_info</span> <span class="o">=</span> <span class="n">ExpressionNodeInfo</span><span class="p">(</span>
+          <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"codeblock-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="c1"># :str</span>
+          <span class="n">code</span> <span class="o">=</span> <span class="n">get_code_portion</span><span class="p">(</span><span class="n">code_lines</span><span class="p">,</span> <span class="n">bs64</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">expr</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">),</span> <span class="c1"># :str (base64)</span>
+          <span class="n">nbox_string</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># :str</span>
+          <span class="n">lineno</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span> <span class="c1"># :int</span>
+          <span class="n">col_offset</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">col_offset</span><span class="p">,</span> <span class="c1"># :int</span>
+          <span class="n">end_lineno</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">end_lineno</span><span class="p">,</span> <span class="c1"># :int</span>
+          <span class="n">end_col_offset</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">end_col_offset</span><span class="p">,</span> <span class="c1"># :int</span>
+          <span class="n">inputs</span> <span class="o">=</span> <span class="p">[],</span> <span class="c1"># :list[Dict[Any, Any]]</span>
+          <span class="n">outputs</span> <span class="o">=</span> <span class="p">[],</span> <span class="c1"># :list[str]</span>
+        <span class="p">),</span>
+      <span class="n">nbox_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"CODE: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="c1"># :str</span>
+      <span class="n">run_status</span> <span class="o">=</span> <span class="n">RunStatus</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inputs</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">outputs</span> <span class="o">=</span> <span class="p">[])</span>
+      <span class="p">)</span>
+      <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+      <span class="k">continue</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="n">type_wise_logic</span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">expr</span><span class="p">)](</span><span class="n">expr</span><span class="p">,</span> <span class="n">code_lines</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="k">continue</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">ExpressionNodeInfo</span><span class="p">):</span>
+      <span class="n">output</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">()),</span>
+        <span class="n">execution_index</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s2">"op-node"</span><span class="p">,</span>
+        <span class="n">operator</span> <span class="o">=</span> <span class="s2">"CodeBlock"</span><span class="p">,</span>
+        <span class="n">node_info</span> <span class="o">=</span> <span class="n">output</span><span class="p">,</span>
+        <span class="n">nbox_string</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">run_status</span> <span class="o">=</span> <span class="n">RunStatus</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inputs</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">outputs</span> <span class="o">=</span> <span class="p">[])</span>
+      <span class="p">)</span>
+      <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">IfNodeInfo</span><span class="p">):</span>
+      <span class="n">output</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">()),</span>
+        <span class="n">execution_index</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"if-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s2">"op-node"</span><span class="p">,</span>
+        <span class="n">operator</span> <span class="o">=</span> <span class="s2">"Conditional"</span><span class="p">,</span>
+        <span class="n">node_info</span> <span class="o">=</span> <span class="n">output</span><span class="p">,</span>
+        <span class="n">nbox_string</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">nbox_string</span><span class="p">,</span>
+        <span class="n">run_status</span> <span class="o">=</span> <span class="n">RunStatus</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inputs</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">outputs</span> <span class="o">=</span> <span class="p">[])</span>
+      <span class="p">)</span>
+      <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">"def"</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]:</span>
+      <span class="n">symbols_to_nodes</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"node_info"</span><span class="p">:</span> <span class="n">output</span><span class="p">,</span>
+        <span class="s2">"execution_index"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+        <span class="s2">"nbox_string"</span><span class="p">:</span> <span class="n">nbxl</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span> <span class="n">output</span><span class="p">[</span><span class="s2">"inputs"</span><span class="p">])</span>
+      <span class="p">}</span>
+
+  <span class="c1"># edges for execution order can be added</span>
+  <span class="k">for</span> <span class="n">op0</span><span class="p">,</span> <span class="n">op1</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">nodes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+    <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+      <span class="n">Edge</span><span class="p">(</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"edge-</span><span class="si">{</span><span class="n">op0</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">-X-</span><span class="si">{</span><span class="n">op1</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="n">op0</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">op1</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s2">"execution-order"</span><span class="p">,</span>
+        <span class="n">nbox_string</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span>
+  <span class="p">)</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="s2">"flowchart"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"edges"</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">],</span>
+      <span class="s2">"nodes"</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"symbols"</span><span class="p">:</span> <span class="n">symbols_to_nodes</span>
+  <span class="p">}</span></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021, nimblebox.ai
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    </body>
+</html>
